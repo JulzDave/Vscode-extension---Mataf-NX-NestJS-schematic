@@ -13,10 +13,10 @@ export function activate(context: vscode.ExtensionContext) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with registerCommand
     // The commandId parameter must match the command field in package.json
-    // TODO: delete this:
-    vscode.window.showInformationMessage(
-        'To activate the Mataf custom NX-NestJS schematic press ctrl + shift + p and enter "Mataf NX-NestJS schematic"'
-    );
+    const schematicPath =
+        "/home/julian/projects/nx/schematics/nest/src/collection.json:nest";
+    const installSchematicCmd = `schematics ${schematicPath} --debug=false --force`;
+
     // TODO: In package.json, change repository.url to azure repo url
     let disposable = vscode.commands.registerCommand(
         "mataf-nx-nest-schematic.nxNestSchematic",
@@ -25,16 +25,10 @@ export function activate(context: vscode.ExtensionContext) {
             if (!vscode.window.activeTerminal) {
                 const newTerminalInstance = vscode.window.createTerminal();
                 newTerminalInstance.show();
-                newTerminalInstance.sendText(
-                    "schematics /home/julian/projects/nx/schematics/nest/src/collection.json:nest --force",
-                    true
-                );
+                newTerminalInstance.sendText(installSchematicCmd, true);
             }
             vscode.window.activeTerminal?.show();
-            vscode.window.activeTerminal?.sendText(
-                "schematics /home/julian/projects/nx/schematics/nest/src/collection.json:nest --force",
-                true
-            );
+            vscode.window.activeTerminal?.sendText(installSchematicCmd, true);
             vscode.window.showInformationMessage(
                 'You have been prompted by "Mataf custom NX-NestJS schematic".\nPlease address the integrated terminal to proceed.'
             );
