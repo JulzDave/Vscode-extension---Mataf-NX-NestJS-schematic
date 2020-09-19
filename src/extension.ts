@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log(
-        'Congratulations, your extension "mataf-nx-nest-schematic" is now active!'
+        'Congratulations, your extension "mataf-nx-nestjs-schematic" is now active!'
     );
 
     // The command has been defined in the package.json file
@@ -19,16 +19,20 @@ export function activate(context: vscode.ExtensionContext) {
 
     // TODO: In package.json, change repository.url to azure repo url
     let disposable = vscode.commands.registerCommand(
-        "mataf-nx-nest-schematic.nxNestSchematic",
+        "mataf-nx-nestjs-schematic.nxNestJSSchematic",
         async () => {
             // The code you place here will be executed every time your command is executed
             if (!vscode.window.activeTerminal) {
                 const newTerminalInstance = vscode.window.createTerminal();
                 newTerminalInstance.show();
                 newTerminalInstance.sendText(installSchematicCmd, true);
+            } else {
+                vscode.window.activeTerminal?.show();
+                vscode.window.activeTerminal?.sendText(
+                    installSchematicCmd,
+                    true
+                );
             }
-            vscode.window.activeTerminal?.show();
-            vscode.window.activeTerminal?.sendText(installSchematicCmd, true);
             vscode.window.showInformationMessage(
                 'You have been prompted by "Mataf custom NX-NestJS schematic".\nPlease address the integrated terminal to proceed.'
             );

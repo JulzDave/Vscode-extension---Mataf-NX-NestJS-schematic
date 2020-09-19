@@ -1,6 +1,6 @@
 {
-	"name": "mataf-nx-nest-schematic",
-	"displayName": "mataf nx nest schematic",
+	"name": "mataf-nx-nestjs-schematic",
+	"displayName": "Mataf NX NestJS schematic",
 	"description": "mataf schemtic installer for NX embedded NestJS plugin.",
 	"icon": "assets/images/fibi-icon.png",
 	"publisher": "Julian-Dave-Shikui",
@@ -16,13 +16,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:mataf-nx-nest-schematic.nxNestSchematic"
+		"onCommand:mataf-nx-nestjs-schematic.nxNestJSSchematic"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "mataf-nx-nest-schematic.nxNestSchematic",
+				"command": "mataf-nx-nestjs-schematic.nxNestJSSchematic",
 				"title": "Mataf NX-NestJS schematic"
 			}
 		]
