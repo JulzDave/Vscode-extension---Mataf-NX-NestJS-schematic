@@ -5,7 +5,7 @@
 	"icon": "assets/images/fibi.png",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/microsoft/vscode-wordcount.git"
+		"url": "https://github.com/microsoft/vscode-wordcount.git" 
 	},
 	"version": "0.0.1",
 	"engines": {
